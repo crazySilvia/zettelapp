@@ -12,6 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="backend" target="17" />
+      <module name="zettelapp" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

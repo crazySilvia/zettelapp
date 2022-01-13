@@ -3,15 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.2</version>
+        <groupId>de.silvia</groupId>
+        <artifactId>spring-boot-react-bundle-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>de.silvia</groupId>
-    <artifactId>backend</artifactId>
+    <artifactId>spring-boot-react-bundle-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>backend</name>
+    <name>spring-boot-react-bundle-backend</name>
     <description>backend</description>
     <properties>
         <java.version>17</java.version>
@@ -44,6 +43,8 @@
         </dependency>
     </dependencies>
 
+
+
     <build>
         <plugins>
             <plugin>
@@ -58,7 +59,27 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>exec-maven-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>Build frontend</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>${project.basedir}/../build-frontend.sh</executable>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+
+
+
     </build>
 
 </project>
