@@ -1,12 +1,13 @@
-import {ChangeEventHandler, FormEventHandler, useState} from "react";
+import React, {ChangeEventHandler, FormEventHandler, useState} from "react";
+import {IArtikel} from "../Models/Artikel";
 
 interface FormularListProps{
-    updateList: (title:string) => void
+    updateList: (updatedArtikel: IArtikel ) => void
 }
 
 export function FormularListe(props:FormularListProps) {
     //sagt, dass value veränderbar ist
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState<string>('');
 
     //nimmt die Eingabe und setzt diese auf value
     const handleChange:ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -16,7 +17,8 @@ export function FormularListe(props:FormularListProps) {
     //bei Klick auf erstellen mache Folgendes
     const handleSubmit:FormEventHandler<HTMLFormElement> = (event) => {
         //ruft setlist auf (in Mainpage)
-        props.updateList(value)
+        const artikel:IArtikel={name: value}
+        props.updateList(artikel)
         //leert value
         setValue("")
         event.preventDefault();
