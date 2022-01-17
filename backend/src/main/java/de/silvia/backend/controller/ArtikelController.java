@@ -24,13 +24,7 @@ public class ArtikelController implements IArtikelController {
     }
 
 
-    @Bean
-    CommandLineRunner runner(IArtikelRepo repo){
-        return args -> {
-            repo.save(Artikel.builder().name("Kuchen").build());
-        };
 
-    }
 
     //*********** Methoden *********
     @Override
