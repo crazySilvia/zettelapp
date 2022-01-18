@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests() //Alles freigegeben
                 .antMatchers("/**").authenticated() //hier muss eingelogged werden
-                //.antMatchers("/denied").denyAll()
+                .antMatchers("/user/me").authenticated()
                 .and().formLogin()
                 .and().httpBasic();
     }
@@ -36,5 +36,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder(){
         return new Argon2PasswordEncoder();
     }
-
 }
