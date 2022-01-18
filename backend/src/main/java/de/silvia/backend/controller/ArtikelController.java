@@ -13,7 +13,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("api/zettel")  //({"${spring.datasource.url}"})
-public class ArtikelController implements IArtikelController {
+public class ArtikelController {
 
     private final ArtikelService aServ;
 
@@ -23,15 +23,10 @@ public class ArtikelController implements IArtikelController {
         this.aServ = aServ;
     }
 
-
-
-
     //*********** Methoden *********
-    @Override
     @GetMapping()
         public List<Artikel> getAll() {return aServ.getAllArtikel();
         }
-    @Override
     @PostMapping(value = "addArtikel")
     public List<Artikel> addArtikel(@RequestBody Artikel artikelToAdd) {
         return aServ.addArtikel(artikelToAdd);

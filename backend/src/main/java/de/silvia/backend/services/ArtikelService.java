@@ -19,7 +19,7 @@ public class ArtikelService {
 
     public List<Artikel> addArtikel(Artikel artikelToAdd) {
         if (repo.findById(artikelToAdd.getId()).isPresent()) {
-            //hier Anzahl erhöhen
+            //ToDo hier Anzahl erhöhen
             return getAllArtikel();
         }
         repo.save(Artikel.builder().name(artikelToAdd.getName()).build());
