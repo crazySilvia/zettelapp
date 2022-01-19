@@ -1,6 +1,6 @@
-package de.silvia.backend.repository;
+package de.silvia.backend.security.repository;
 
-import de.silvia.backend.models.User;
+import de.silvia.backend.security.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

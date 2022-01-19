@@ -1,8 +1,8 @@
 package de.silvia.backend;
 
-import de.silvia.backend.models.User;
+import de.silvia.backend.security.models.User;
 import de.silvia.backend.repository.IArtikelRepo;
-import de.silvia.backend.repository.IUserRepo;
+import de.silvia.backend.security.repository.IUserRepo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +16,12 @@ import java.util.List;
 
 @SpringBootApplication
 //Java sagen, wo das Repo liegt
-@EnableMongoRepositories(basePackageClasses = IArtikelRepo.class)
-public class BackendApplication implements CommandLineRunner{
+@EnableMongoRepositories//(basePackageClasses = IArtikelRepo.class)
+public class BackendApplication implements CommandLineRunner {
     private static final Log LOG = LogFactory.getLog(BackendApplication.class);
 
     public static void main(String[] args) {
+
         SpringApplication.run(BackendApplication.class, args);
     }
 

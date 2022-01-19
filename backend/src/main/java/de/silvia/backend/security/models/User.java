@@ -1,4 +1,4 @@
-package de.silvia.backend.models;
+package de.silvia.backend.security.models;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;

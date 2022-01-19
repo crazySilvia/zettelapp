@@ -1,7 +1,7 @@
-package de.silvia.backend.services;
+package de.silvia.backend.security.service;
 
-import de.silvia.backend.models.User;
-import de.silvia.backend.repository.IUserRepo;
+import de.silvia.backend.security.models.User;
+import de.silvia.backend.security.repository.IUserRepo;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements UserDetailsService {
 
+    public static final String AUTHORITY_API_READWRITE = "API_READWRITE";
     private final IUserRepo userRepo;
 
     public UserService(IUserRepo repository) {
+
         this.userRepo = repository;
     }
 

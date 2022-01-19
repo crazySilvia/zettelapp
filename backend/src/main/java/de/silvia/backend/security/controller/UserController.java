@@ -1,7 +1,7 @@
-package de.silvia.backend.controller;
+package de.silvia.backend.security.controller;
 
-import de.silvia.backend.models.User;
-import de.silvia.backend.services.UserService;
+import de.silvia.backend.security.models.User;
+import de.silvia.backend.security.service.UserService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +11,7 @@ import java.security.Principal;
 
 @CrossOrigin
 @RestController
-@RequestMapping("user")
+@RequestMapping("api/user")
 public class UserController {
     private final UserService uServ;
 
