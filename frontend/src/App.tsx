@@ -1,14 +1,27 @@
+import React from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Mainpage from "./Pages/Mainpage";
+import LoginPage from "./Pages/LoginPage";
+import RequireAuth from "./Routing/RequireAuth";
+import AuthProvider from "./Context/AuthProvider";
+import ListPage from "./Pages/ListPage";
 
-export default function App(){
-  return(
-      <BrowserRouter>
-          <Routes>
-              <Route path="/" element={<Mainpage />}/>
-              <Route path="/:wichList" element={<ListPage/>}/>
-              <Route path="/login" element={<LoginPage/>}/>
-          </Routes>
-      </BrowserRouter>
-  );
+function App(){
+    return(
+        <BrowserRouter>
+            <AuthProvider>
+                <Routes>
+                    <Route path="/" element={<Mainpage />}/>
+                    <Route path="/lists/:whichList" element={
+                        <RequireAuth>
+                            <ListPage />
+                        </ RequireAuth>
+                    }/>
+                    <Route path={"/login"} element={<LoginPage />}/>
+                </ Routes>
+            </ AuthProvider>
+        </ BrowserRouter>
+    );
 }
+
+export default App;

@@ -13,7 +13,6 @@ public class ArtikelService {
     public ArtikelService(IArtikelRepo repo) {
         this.repo = repo;
     }
-
     //********* Methoden ********
     public List<Artikel> getAllArtikel() {
         return repo.findAll();

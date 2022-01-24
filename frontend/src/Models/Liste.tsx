@@ -1,8 +1,8 @@
 import "../Components/Liste.css"
 import React, {useEffect, useState} from "react";
 import Artikel, {IArtikel} from "./Artikel";
-import {FormularListe} from "../services/FormularListe";
-import {getAllArtikel} from "../services/api-service";
+
+import {getAllArtikel} from "../Services/apiService";
 
 export function Liste(){
     //erstellt und aktualisiert Liste
@@ -34,26 +34,23 @@ export function Liste(){
         setArtikel(aktuelleListe)
     }
 
+    //Todo minus implementieren
+    const minusArtikel = (index:Number)=>{
+
+    }
+
+    //todo plus implementieren
+    const plusArtikel = (index:Number)=>{
+
+    }
+//<FormularListe updateList={updateArtikel} />
     return(<div>
-             <FormularListe updateList={updateArtikel} />
+
              <ul>{artikel.map((value: IArtikel, index: number) =>
                  (<li key={index}>
-                     <Artikel artikel={value} index={index} button={deleteArtikel} />
+                     <Artikel artikel={value} index={index} button={deleteArtikel}  buttonminus={minusArtikel} buttonplus={plusArtikel}/>
                  </li>))}
              </ul>
              <button onClick={deleteList}>Liste löschen</button>
      </div>)
-
-
 }
-
-//return(<div>
-//             <FormularListe updateList={updateArtikel} />
-//             <ul>{artikel.map((value: string, index: number) =>
-//                 (<li key={index}>
-//                     <Artikel name={value} anzahl={1} index={index} button={deleteArtikel} />
-//                 </li>))}
-//             </ul>
-//             <button onClick={deleteList}>Liste löschen</button>
-//     </div>
-//     )

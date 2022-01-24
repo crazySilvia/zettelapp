@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+//data transfer obfekt kommt vom frontend geschickt
 public class DtoListname {
     String listName;
 }

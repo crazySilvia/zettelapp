@@ -2,9 +2,12 @@ package de.silvia.backend.services;
 
 import de.silvia.backend.models.ArtikelListe;
 import de.silvia.backend.repository.IArtikelListRepo;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ArtikelListService {
 
     private final IArtikelListRepo listRepo;
@@ -19,7 +22,8 @@ public class ArtikelListService {
 
     public Optional<ArtikelListe> saveNewList(String listName) {
         if (listRepo.findByListName(listName).isEmpty()){
-            return Optional.of(listRepo.save(ArtikelListe.builder().listName(listName).build()));
+            return Optional.of(listRepo.save(ArtikelListe.builder()
+                    .listName(listName).build()));
         }
         return Optional.empty();
     }
