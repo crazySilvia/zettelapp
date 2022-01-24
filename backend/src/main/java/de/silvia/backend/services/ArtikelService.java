@@ -2,15 +2,17 @@ package de.silvia.backend.services;
 
 import de.silvia.backend.models.Artikel;
 import de.silvia.backend.repository.IArtikelRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public class ArtikelService {
 
-    @Autowired
-    public IArtikelRepo repo;
+    private final IArtikelRepo repo;
+
+    public ArtikelService(IArtikelRepo repo) {
+        this.repo = repo;
+    }
 
     //********* Methoden ********
     public List<Artikel> getAllArtikel() {
@@ -18,19 +20,23 @@ public class ArtikelService {
     }
 
     public List<Artikel> addArtikel(Artikel artikelToAdd) {
-        if (repo.findById(artikelToAdd.getId()).isPresent()) {
+        /*if (repo.findArtikelByName(artikelToAdd.getName()).isPresent()) {
             //ToDo hier Anzahl erhöhen
-            return getAllArtikel();
-        }
-        repo.save(Artikel.builder().name(artikelToAdd.getName()).build());
+            artikelToAdd.setAnzahl(artikelToAdd.getAnzahl()+1);
 
+            return getAllArtikel();
+        }*/
+        repo.save(Artikel.builder().name(artikelToAdd.getName()).build());
         return getAllArtikel();
     }
 
-   // // public List<Artikel> removeArtikel(String itemKey) {
-    //        repo.deleteById(itemKey);
-    //        return getAllArtikel();
-    //    }
+    public List<Artikel> removeArtikel(String id) {
+        repo.removeArtikelById(id);
+        return getAllArtikel();
+    }
+
+
+
 
 }
 

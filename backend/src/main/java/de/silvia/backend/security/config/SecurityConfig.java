@@ -32,9 +32,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests() //Alles freigegeben
                 //.antMatchers("/**").authenticated()
-                .antMatchers("/api/**").authenticated() //hier muss eingelogged werden
-                .antMatchers("/api/user/me").authenticated()
+                .antMatchers("/api/**").permitAll() //TODOauthenticated() //hier muss eingelogged werden
+                .antMatchers("/api/user/me").permitAll() //todo.authenticated()
                 .antMatchers("/auth/login**").permitAll()
+                .antMatchers("/zettel/**").permitAll()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
     }
