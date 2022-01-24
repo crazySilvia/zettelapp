@@ -1,6 +1,5 @@
 import ".//Header.css"
 import React from "react";
-import NavBar from "./NavBar";
 
 export default function Header({title}: {title: string}){
     return(

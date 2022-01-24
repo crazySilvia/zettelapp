@@ -13,7 +13,7 @@ export default function Mainpage(){
 
     useEffect( () => {
         updateLists().catch(e => console.log(e.message))
-    },[])
+    })
 
     const updateLists = () => getAllLists(token).then(setLists)
 

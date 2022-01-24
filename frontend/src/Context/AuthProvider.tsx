@@ -9,7 +9,7 @@ export interface AuthContextType {
 }
 
 export const AuthContext = createContext<AuthContextType>({
-    setJwt: (data) => {throw "Login nicht gestartet"}
+    setJwt: () => {throw "Login nicht gestartet"}
 })
 
 export default function AuthProvider({children} : {children: ReactElement<any, any>}) {

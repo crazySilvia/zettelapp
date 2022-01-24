@@ -10,7 +10,7 @@ export default function LoginPage(){
     const[name, setName] = useState<string>()
     const [password, setPassword] = useState<string>()
 
-    const {setJwt} = useContext(AuthContext)
+   // const {setJwt} = useContext(AuthContext)
 
     const onUserNameChange = (event: ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value)
@@ -20,14 +20,14 @@ export default function LoginPage(){
         setPassword(event.target.value)
     }
 
-    const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        axios.post('/auth/login', {name, password})
-            .then(response => response.data)
-            .then((data) => {
-                setJwt(data)
-            })
-    }
+    //const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    //         event.preventDefault()
+    //         axios.post('/auth/login', {name, password})
+    //             .then(response => response.data)
+    //             .then((data) => {
+    //                 setJwt(data)
+    //             })
+    //     }
 
     return(
         //1. Header

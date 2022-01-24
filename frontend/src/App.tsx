@@ -18,9 +18,9 @@ function App(){
                         </ RequireAuth>
                     }/>
                     <Route path={"/login"} element={<LoginPage />}/>
-                </ Routes>
-            </ AuthProvider>
-        </ BrowserRouter>
+                </Routes>
+            </AuthProvider>
+        </BrowserRouter>
     );
 }
 
