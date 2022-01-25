@@ -3,5 +3,12 @@
 }
 
 body{
-  background-color: darkgray;
+  background-color: #090446;
 }
+.button{
+  color: #090446;
+}
+.navBar{
+  navbutton_background_color: #f71735;
+}
+

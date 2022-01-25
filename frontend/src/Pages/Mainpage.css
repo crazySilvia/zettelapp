@@ -5,12 +5,12 @@
 
 div{
     text-align: center;
-    color: papayawhip;
+    color: #f71735;
 }
 
 body{
     display: flex;
-    background-color: cornflowerblue;
+    background-color: #090446;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }

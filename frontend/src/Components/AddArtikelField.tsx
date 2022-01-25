@@ -1,30 +1,32 @@
 import React from 'react';
 import {ChangeEvent, Dispatch, SetStateAction} from "react";
 
-interface AddArtikelFeldProps {
+interface AddArtikelFieldProps {
     anzahl: number
     setAnzahl: Dispatch<SetStateAction<number>>
     artikel: string
     setArtikel: Dispatch<SetStateAction<string>>
 }
 
-export default function AddArtikelFeld({anzahl,setAnzahl,artikel,setArtikel} : AddArtikelFeldProps){
+export default function AddArtikelField({anzahl,setAnzahl,artikel,setArtikel} : AddArtikelFieldProps){
 
-    const onItemChange: (event: ChangeEvent<HTMLInputElement>) => void = (event) => {
+    const onArtikelChange: (event: ChangeEvent<HTMLInputElement>) => void =
+        (event) => {
         setArtikel(event.target.value);
     }
 
-    const onAmountChange: (event: ChangeEvent<HTMLInputElement>) => void = (event) => {
+    const onAnzahlChange: (event: ChangeEvent<HTMLInputElement>) => void =
+        (event) => {
         setAnzahl(parseInt(event.target.value));
     }
 
     return(
         <form >
             <div className="addField_input">
-                <input type="text" onChange={onItemChange} value={artikel}/>
+                <input type="text" onChange={onArtikelChange} placeholder="Artikel" value={artikel}/>
             </div>
             <div className="addField_input">
-                <input type="text" onChange={onAmountChange} value={anzahl}/>
+                <input type="text" onChange={onAnzahlChange} placeholder="Anzahl" value={anzahl}/>
             </div>
             <div className="addField_button">
                 <button type={"submit"}>Add</button>

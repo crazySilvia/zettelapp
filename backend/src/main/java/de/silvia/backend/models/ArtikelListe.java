@@ -15,6 +15,4 @@ public class ArtikelListe {
     @Id
     String listName;
     HashMap<String,Artikel> artikel;
-
-
 }

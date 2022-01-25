@@ -12,15 +12,16 @@ function App(){
             <AuthProvider>
                 <Routes>
                     <Route path="/" element={<Mainpage />}/>
+                    <Route path="/list" element={<ListPage />}/>
                     <Route path="/lists/:whichList" element={
                         <RequireAuth>
                             <ListPage />
                         </ RequireAuth>
                     }/>
                     <Route path={"/login"} element={<LoginPage />}/>
-                </Routes>
-            </AuthProvider>
-        </BrowserRouter>
+                </ Routes>
+            </ AuthProvider>
+        </ BrowserRouter>
     );
 }
 

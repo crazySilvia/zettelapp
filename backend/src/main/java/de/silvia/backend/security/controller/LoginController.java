@@ -15,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("auth/login")
+@RequestMapping("/auth")
 public class LoginController {
 
     final JWTUtils jwtService;
@@ -26,7 +26,7 @@ public class LoginController {
         this.jwtService = jwtService;
     }
 
-    @PostMapping
+    @PostMapping("/login")
     public String login(@RequestBody LoginData data) {
         try {
             //darf der User sich anmelden?
